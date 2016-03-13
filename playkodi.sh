@@ -23,14 +23,14 @@ OPTIND=1         # Reset in case getopts has been used previously in the shell.
 # help
 echo ""
 echo "### nwgat.ninja kodi plyer ###"
-echo "-p = play "
+echo "-u = play url "
 echo "-m = mute audio"
 echo "-s = stop playing"
 echo ""
 
 
 ## arguments
-while getopts "p?ms:" opt; do
+while getopts "u?ms:" opt; do
     case "$opt" in
     p|\?)
 	curl --user "$user:$pass" --header "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"Player.Open","params":{"item": {"file":"http://download.blender.org/demo/movies/Sintel.2010.1080p.mkv"}},"id":1}' "$host/jsonrpc"
