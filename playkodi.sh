@@ -33,7 +33,7 @@ echo ""
 while getopts "p?ms:" opt; do
     case "$opt" in
     p|\?)
-	curl --user "$user:$pass" --header "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"Player.Open","params":{"item": {"file":"http://awesome.nwgat.ninja/misc/Commie_typesetting_shenanigans.mp4"}},"id":1}' "$host/jsonrpc"
+	curl --user "$user:$pass" --header "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"Player.Open","params":{"item": {"file":"http://download.blender.org/demo/movies/Sintel.2010.1080p.mkv"}},"id":1}' "$host/jsonrpc"
         exit 0
         ;;
     m)  curl --user "$user:$pass" --header "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "Application.SetMute", "params": {"mute":"toggle"}, "id": 1}' "$host/jsonrpc"
