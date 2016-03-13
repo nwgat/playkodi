@@ -1,4 +1,6 @@
-# PlayKodi # a cli based controller for kodi
+# PlayKodi #
+a cli based player for kodi
+
 i didnt find a good cli based kodi player so i wrote my own
 
 **Current Arguments**
@@ -6,3 +8,8 @@ i didnt find a good cli based kodi player so i wrote my own
 * -p = play
 * -m = mute audio
 * -s = stop playing
+* 
+**Examples**
+kodiplay -p http://download.blender.org/demo/movies/Sintel.2010.1080p.mkv
+
+**alpha**
