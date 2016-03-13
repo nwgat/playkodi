@@ -19,4 +19,4 @@ i didnt find a good cli based kodi player so i wrote my own
 **Todo**
 
 * fix the harcoded url
-* ssee [todo.md]
+* see [todo.md](todo.md)
