@@ -9,6 +9,7 @@ i didnt find a good cli based kodi player so i wrote my own
 * -m = mute audio
 * -s = stop playing
 * 
+
 **Examples**
 kodiplay -p http://download.blender.org/demo/movies/Sintel.2010.1080p.mkv
 
