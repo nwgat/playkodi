@@ -8,20 +8,23 @@ i didnt find a good cli based kodi player so i wrote my own
 
 | Feature       |    Argument   |
 | ------------- | ------------- |
-| play url     | -u             | 
-| mute audio   | -m             |
-| stop playing | -s             |
+| Play url     | -u             | 
+| Mute Audio   | -m             |
+| Stop Playing | -s             |
 
 **Examples**
 
 * `playkodi -u http://download.blender.org/demo/movies/Sintel.2010.1080p.mkv`
 
 **Todo**
+
 * fix the harcoded url
 
-| Feature  | Argument |
-| ------------- | ------------- |
-| Volume 0-100 |  -v 0-100   |
-| Add to playlist | -ap |
-| Play Playlist| -pp |
-| Play next in playlist | -pn
+| Feature               |       Argument           |
+| --------------------- | ------------------------ |
+| Play Movie            | -p Sintel                | 
+| Play Local File       | -l Sintel.2010.1080p.mkv |
+| Volume 0-100          | -v 0-100                 |
+| Add to playlist       | -ap                      |
+| Play Playlist         | -pp                      |
+| Play next in playlist | -pn                      |
