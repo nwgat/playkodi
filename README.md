@@ -6,18 +6,22 @@ i didnt find a good cli based kodi player so i wrote my own
 
 **Current Arguments**
 
-* -p = play
-* -m = mute audio
-* -s = stop playing
+| Feature       |    Argument   |
+| ------------- | ------------- |
+| play url     | -u             | 
+| mute audio   | -m             |
+| stop playing | -s             |
 
 **Examples**
 
-* `playkodi -p http://download.blender.org/demo/movies/Sintel.2010.1080p.mkv`
+* `playkodi -u http://download.blender.org/demo/movies/Sintel.2010.1080p.mkv`
 
 **Todo**
-
 * fix the harcoded url
-* Volume 0-100
-* Add to playlist 1
-* Play Playlist 1
-* Play next in playlist 1
+
+| Feature  | Argument |
+| ------------- | ------------- |
+| Volume 0-100 |  -v 0-100   |
+| Add to playlist | -ap |
+| Play Playlist| -pp |
+| Play next in playlist | -pn
