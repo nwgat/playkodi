@@ -10,7 +10,7 @@ i didnt find a good cli based kodi player so i wrote my own
 | ------------- | ------------- |
 | Play url     | -u             | 
 | Mute Audio   | -m             |
-| Stop Playing | -s             |
+| Stop Playing | -s 1           |
 
 **Examples**
 
