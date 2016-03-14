@@ -29,7 +29,7 @@ echo ""
 
 
 ## arguments
-while getopts "u?msvp:" opt; do
+while getopts "u?msvl:" opt; do
     case "$opt" in
     u|\?)
     	read url
@@ -44,7 +44,7 @@ while getopts "u?msvp:" opt; do
         read vol
         curl --user "$user" --header "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "Application.SetVolume", "params": {"volume":'"$vol"'}, "id": 1}' "$host/jsonrpc"
         ;;
-    p) 
+    l) 
         read file
 	curl --user "$user" --header "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"Player.Open","params":{"item": {"file":"'"$lhost/$file"'"}},"id":1}' "$host/jsonrpc"
         ;;
