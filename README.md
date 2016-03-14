@@ -20,6 +20,4 @@ i didnt find a good cli based kodi remote so i wrote my own
 * `http://download.blender.org/demo/movies/Sintel.2010.1080p.mkv`
 
 **Todo**
-
-* fix the harcoded url
 * see [todo.md](todo.md)
