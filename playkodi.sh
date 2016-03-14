@@ -24,12 +24,13 @@ echo ""
 echo "### nwgat.ninja kodi player ###"
 echo "-u = play url "
 echo "-m = mute audio"
+echo "-v = change volume (0-100)"
 echo "-s stop = stop playing"
 echo ""
 
 
 ## arguments
-while getopts "u?ms:" opt; do
+while getopts "u?msv:" opt; do
     case "$opt" in
     u|\?)
     	read url
@@ -39,6 +40,10 @@ while getopts "u?ms:" opt; do
     m)  curl --user "$user" --header "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "Application.SetMute", "params": {"mute":"toggle"}, "id": 1}' "$host/jsonrpc"
         ;;
     s)  curl --user "$user" --header "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "Player.Stop", "params": {"playerid":1}, "id": 1}' "$host/jsonrpc"
+        ;;
+    v)  
+        read vol
+        curl --user "$user" --header "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "Application.SetVolume", "params": {"volume":'"$vol"'}, "id": 1}' "$host/jsonrpc"
         ;;
     esac
 done
