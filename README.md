@@ -3,7 +3,7 @@
 # PlayKodi #
 a cli based remote for kodi. written in bash
 
-i didnt find a good cli based kodi player so i wrote my own
+i didnt find a good cli based kodi remote so i wrote my own
 
 **Current Arguments**
 
