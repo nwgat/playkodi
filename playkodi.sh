@@ -32,8 +32,8 @@ echo ""
 while getopts "u?ms:" opt; do
     case "$opt" in
     u|\?)
-    	read file
-	curl --user "$user" --header "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"Player.Open","params":{"item": {"file":"'"$file"'"}},"id":1}' "$host/jsonrpc"
+    	read url
+	curl --user "$user" --header "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"Player.Open","params":{"item": {"file":"'"$url"'"}},"id":1}' "$host/jsonrpc"
         exit 0
         ;;
     m)  curl --user "$user" --header "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "Application.SetMute", "params": {"mute":"toggle"}, "id": 1}' "$host/jsonrpc"
