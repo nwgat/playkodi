@@ -6,7 +6,7 @@
 # some parts borrowed from
 # https://github.com/pla1/utils/blob/master/kodiJsonExamples.sh
 #
-# Requires curl
+# Requires curl 
 #
 
 # kodi
