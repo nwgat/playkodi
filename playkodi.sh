@@ -29,7 +29,7 @@ echo ""
 
 
 ## arguments
-while getopts "u?ms:" opt; do
+while getopts "p?ms:" opt; do
     case "$opt" in
     p|\?)
 	curl --user "$user" --header "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"Player.Open","params":{"item": {"file":"http://download.blender.org/demo/movies/Sintel.2010.1080p.mkv"}},"id":1}' "$host/jsonrpc"
