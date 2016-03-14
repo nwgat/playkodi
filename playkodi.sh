@@ -46,7 +46,7 @@ while getopts "u?msvp:" opt; do
         ;;
     p) 
         read file
-	curl --user "$user" --header "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"Player.Open","params":{"item": {"file":"'"$file"'"}},"id":1}' "$host/jsonrpc"
+	curl --user "$user" --header "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"Player.Open","params":{"item": {"file":"'"$lhost/$file"'"}},"id":1}' "$host/jsonrpc"
         ;;
     esac
 done
