@@ -39,8 +39,7 @@ while getopts "u?msl:" opt; do
         ;;
     s)  curl --user "$user" --header "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "Player.Stop", "params": {"playerid":1}, "id": 1}' "$host/jsonrpc"
         ;;
-        echo "file to play?"
-        read -p file
+        read file
     l)  curl --user "$user" --header "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"Player.Open","params":{"item": {"file":"'"$file"'"}},"id":1}' "$host/jsonrpc"
         ;;
     esac
