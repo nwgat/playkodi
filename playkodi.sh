@@ -21,10 +21,10 @@ OPTIND=1         # Reset in case getopts has been used previously in the shell.
 
 # help
 echo ""
-echo "### nwgat.ninja kodi plyer ###"
+echo "### nwgat.ninja kodi player ###"
 echo "-u = play url "
 echo "-m = mute audio"
-echo "-s = stop playing"
+echo "-s stop = stop playing"
 echo ""
 
 
