@@ -29,7 +29,7 @@ echo ""
 
 
 ## arguments
-while getopts "u?msl:" opt; do
+while getopts "u?ms:" opt; do
     case "$opt" in
     u|\?)
 	curl --user "$user" --header "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"Player.Open","params":{"item": {"file":"http://download.blender.org/demo/movies/Sintel.2010.1080p.mkv"}},"id":1}' "$host/jsonrpc"
@@ -38,8 +38,6 @@ while getopts "u?msl:" opt; do
     m)  curl --user "$user" --header "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "Application.SetMute", "params": {"mute":"toggle"}, "id": 1}' "$host/jsonrpc"
         ;;
     s)  curl --user "$user" --header "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "Player.Stop", "params": {"playerid":1}, "id": 1}' "$host/jsonrpc"
-        ;;
-    l)  curl --user "$user" --header "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"Player.Open","params":{"item": {"file":"'"$file"'"}},"id":1}' "$host/jsonrpc"
         ;;
     esac
 done
