@@ -14,7 +14,7 @@ host="htpc:8080"
 user="kodi:kodi"
 
 # local ip so you can play local files using devd http server
-lhost="localhost"
+lhost="yourmachine"
 
 # A POSIX variable
 OPTIND=1         # Reset in case getopts has been used previously in the shell.
