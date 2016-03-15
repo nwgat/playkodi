@@ -11,7 +11,9 @@ i didnt find a good cli based kodi remote so i wrote my own
 | ------------- | ------------- |
 | Play url     | -u             | 
 | Mute Audio   | -m             |
+| Change volume 0-100 | -v 0-100| 
 | Stop Playing | -s 1           |
+
 
 **Examples**
 
