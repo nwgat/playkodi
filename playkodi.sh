@@ -1,58 +1,41 @@
 #!/bin/sh
-#
-# nwgat.ninja kodi player
-# http://nwgat.ninja
-#
-# some parts borrowed from
-# https://github.com/pla1/utils/blob/master/kodiJsonExamples.sh
-#
-# Requires curl 
-#
 
-# kodi
-host="htpc:8080"
-user="kodi:kodi"
+#kodi
+user=kodi:kodi
+host=htpc:8080
 
-# local ip so you can play local files using devd http server
-lhost="yourmachine"
+#local http
+lhost=yourmachine
 
-# A POSIX variable
-OPTIND=1         # Reset in case getopts has been used previously in the shell.
 
-# help
-echo ""
+usage () {
 echo "### nwgat.ninja kodi player ###"
 echo "-u = play url "
 echo "-m = mute audio"
 echo "-s stop = stop playing"
-echo ""
+echo "$OPTARG"
+}
 
-
-## arguments
-while getopts "u?msvl:" opt; do
-    case "$opt" in
-    u|\?)
-    	read url
-	curl --user "$user" --header "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"Player.Open","params":{"item": {"file":"'"$url"'"}},"id":1}' "$host/jsonrpc"
+while getopts ":uhmsv:" option; do
+  case "$option" in
+    u)  curl --user $user --header "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"Player.Open","params":{"item": {"file":"'"$OPTARG"'"}},"id":1}' "$host/jsonrpc" 
+		exit 0
+        ;;
+    h)  # it's always useful to provide some help 
+        usage
         exit 0
         ;;
-    m)  curl --user "$user" --header "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "Application.SetMute", "params": {"mute":"toggle"}, "id": 1}' "$host/jsonrpc"
+    m)  curl --user "$user" --header "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "Application.SetMute", "params": {"mute":"toggle"}, "id": 1}' "$host/jsonrpc"		
+		exit 1
         ;;
-    s)  curl --user "$user" --header "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "Player.Stop", "params": {"playerid":1}, "id": 1}' "$host/jsonrpc"
+	s)  curl --user "$user" --header "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "Player.Stop", "params": {"playerid":1}, "id": 1}' "$host/jsonrpc"
+        exit 1
         ;;
-    v)  
-        read vol
-        curl --user "$user" --header "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "Application.SetVolume", "params": {"volume":'"$vol"'}, "id": 1}' "$host/jsonrpc"
+	v) curl --user "$user" --header "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "Application.SetVolume", "params": {"volume":'"$OPTARG"'}, "id": 1}' "$host/jsonrpc"
+		;;
+	?)  echo "Error: unknown option -$OPTARG" 
+        usage
+        exit 1
         ;;
-    l) 
-        read file
-	curl --user "$user" --header "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"Player.Open","params":{"item": {"file":"'"$lhost/$file"'"}},"id":1}' "$host/jsonrpc"
-        ;;
-    esac
-done
-
-shift $((OPTIND-1))
-
-[ "$1" = "--" ] && shift
-
-# End of file
+  esac
+done    
